@@ -6,7 +6,7 @@
 [![Streamlit](https://img.shields.io/badge/Streamlit-App-red.svg)](https://streamlit.io)
 [![TensorFlow](https://img.shields.io/badge/TensorFlow-LSTM-orange.svg)](https://tensorflow.org)
 
-**GitHub:** [github.com/idsaturn07/GOLD_PRICE_PROJECT](https://github.com/idsaturn07/GOLD_PRICE_PROJECT)
+**GitHub:** [github.com/idsaturn07/gold_price_prediction_lstm](https://github.com/idsaturn07/gold_price_prediction_lstm)
 
 ---
 
@@ -25,12 +25,14 @@
 ## 🗂️ Project Structure
 
 ```
-GOLD_PRICE_PROJECT/
-├── app.py            # Streamlit UI — main entry point
-├── model.py          # LSTM training, gold data, news sentiment
-├── chatbot.py        # Groq LLaMA AI assistant
-├── .env              # Secret API keys (never committed)  
-├── requirements.txt
+gold_price_prediction_lstm/
+├── app.py              # Streamlit UI — main entry point
+├── model.py            # LSTM training, gold data, news sentiment
+├── chatbot.py          # Groq LLaMA AI assistant
+├── .env                # API keys (fill in yours)
+├── .gitignore          # Excludes venv, pycache, .env from Git
+├── LICENSE             # MIT License
+├── requirements.txt    # Python dependencies
 └── README.md
 ```
 
@@ -40,32 +42,25 @@ GOLD_PRICE_PROJECT/
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/idsaturn07/GOLD_PRICE_PROJECT.git
-cd GOLD_PRICE_PROJECT
+git clone https://github.com/idsaturn07/gold_price_prediction_lstm.git
+cd gold_price_prediction_lstm
 ```
 
-### 2. Install dependencies
+### 2. Create a virtual environment
+```bash
+python -m venv venv
+source venv/bin/activate        # macOS/Linux
+venv\Scripts\activate           # Windows
+```
+
+### 3. Install dependencies
 ```bash
 pip install -r requirements.txt
 python -m textblob.download_corpora
 ```
 
-**requirements.txt:**
-```
-streamlit
-yfinance
-numpy
-pandas
-scikit-learn
-tensorflow
-textblob
-requests
-groq
-python-dotenv
-```
-
-### 3. Add your API keys
-Open .env and fill in your keys:
+### 4. Add your API keys
+Open `.env` and fill in your keys:
 ```
 NEWS_API_KEY=your_newsapi_key_here
 GROQ_API_KEY=your_groq_api_key_here
@@ -76,7 +71,7 @@ GROQ_API_KEY=your_groq_api_key_here
 | `NEWS_API_KEY` | [newsapi.org](https://newsapi.org) |
 | `GROQ_API_KEY` | [console.groq.com](https://console.groq.com) |
 
-### 4. Run the app
+### 5. Run the app
 ```bash
 streamlit run app.py
 ```
